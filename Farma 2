@@ -1,0 +1,89 @@
+using System;
+
+namespace Zvirata2
+{
+    class prase
+    {
+        public string jméno;
+        public int váha;
+        public int id;
+        public string typ_chovu;
+        public prase(string Jméno, int Váha, int Id, string Typ_chovu)
+        {
+            jméno = Jméno;
+            váha = Váha;
+            id = Id;
+            typ_chovu = Typ_chovu;
+        }
+        public void ZvukPrase()
+        {
+            Console.WriteLine("Kvík,kví");
+        }
+        public void výpis_vlastností()
+        {
+            Console.WriteLine("Jméno "+jméno);
+            Console.WriteLine("Váha "+váha);
+            Console.WriteLine("Id "+id);
+            Console.WriteLine("Typ_chovu "+typ_chovu);
+        }
+        public string SetJmeno(string nové)
+        {
+            jméno = nové;
+            Console.WriteLine("Nové jméno " + jméno);
+            return jméno;
+        }
+    }
+    class ovce : prase
+    {
+        public ovce(string Jméno, int Váha, int Id, string Typ_chovu) : base(Jméno, Váha, Id, Typ_chovu)
+        {
+            jméno = Jméno;
+            váha = Váha;
+            id = Id;
+            typ_chovu = Typ_chovu;
+        }
+        public void ZvukOvce()
+        {
+            Console.WriteLine("Béé,Béé");
+        }
+    }
+    class kráva : prase
+    {
+        public kráva(string Jméno, int Váha, int Id, string Typ_chovu) : base(Jméno, Váha, Id, Typ_chovu)
+        {
+            jméno = Jméno;
+            váha = Váha;
+            id = Id;
+            typ_chovu = Typ_chovu;
+        }
+        public void ZvukKráva()
+        {
+            Console.WriteLine("BU!");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            prase máro = new prase("marek",1100,1,"maso");
+            prase kuba = new prase("kuba", 1100, 2, "maso");
+            prase david = new prase("david", 1100, 3, "maso");
+            kráva kofolac = new kráva("kofolac", 1200, 1, "mléko");
+            kráva karky = new kráva("karky", 1200, 2, "mléko");
+            kráva čížo = new kráva("čížo", 1200, 3, "mléko");
+            ovce standa = new ovce("standa", 500, 1, "vlna");
+            ovce ondra = new ovce("ondra", 500, 2, "vlna");
+            ovce venca = new ovce("venca", 500, 3, "vlna");
+            máro.ZvukPrase();
+            máro.výpis_vlastností();
+            máro.SetJmeno(Console.ReadLine());            
+            kofolac.ZvukKráva();
+            kofolac.výpis_vlastností();
+            kofolac.SetJmeno(Console.ReadLine());
+            venca.ZvukPrase();
+            venca.výpis_vlastností();
+            venca.SetJmeno(Console.ReadLine());
+
+        }
+    }
+}
